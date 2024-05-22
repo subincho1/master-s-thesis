@@ -1,0 +1,11 @@
+# Post-Hoc: Tukey's HSD
+
+# 패키지 실행
+import statsmodels.stats.multicomp as mc
+
+# Post Hoc: Sense of Agency (Participation x Result)
+# 첫번째 칸에 변인 '행위주체감', 두번째 칸에 실험 조건 컬럼 'Conditon' 입력
+comp = mc.MultiComparison(PostHocTest['MeanOfSenseOfAgency'], PostHocTest['Condition'])
+# Tukey's HSD 적용
+post_hoc_res = comp.tukeyhsd()
+print('Post Hoc: Sense of Agency (Participation x Result)\n', post_hoc_res.summary())
