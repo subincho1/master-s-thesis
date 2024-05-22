@@ -1,0 +1,23 @@
+# Two-way ANOVA
+
+# 패키지 실행
+from statsmodels.formula.api import ols
+from statsmodels.stats.anova import anova_lm
+
+# 모델 설정
+model3 = 'MeanOfSenseOfAgency ~ Participation * Result'
+# 모델 피팅
+twoWayAnova3 = ols(model3, data=unionData).fit()
+# 결과 테이블 확인
+print('Sense of Agency\n', anova_lm(twoWayAnova3))
+
+# 결과 시각화
+# y축 범위 설정
+plt.ylim(1, 5)
+# y축 눈금 설정
+plt.yticks(ticks=[1, 2, 3, 4, 5])
+# pointplot 그리기
+graph3 = sns.pointplot(x='Participation', y='MeanOfSenseOfAgency', hue='Result', data=unionData, markers=['^', 'o'], linestyles=['-', '--'], ci=False)
+# y축 라벨 설정
+graph3.set_ylabel("Sense of Agency")
+plt.show()
