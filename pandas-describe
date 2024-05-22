@@ -1,0 +1,31 @@
+# describe() 함수를 이용하여 기술통계량 파악
+# 판다스 실행
+import pandas as pd
+# 데이터 불러오고 'unionData'로 변수명 지어주기
+unionData = pd.read_csv('/Users/choisubin/Desktop/SubinChoi/대학원/졸업논문/unionSurveyData.csv', encoding='UTF8')
+
+# '인공지능 마음 인식' 기술통계량 - 항목별로 나눠서 함수 적용
+desEmo = unionData['MeanOfEmotion'].describe()
+desInt = unionData['MeanOfIntention'].describe()
+desCog = unionData['MeanOfCognition'].describe()
+
+# '인지된 유용성' 기술통계량
+desPerUse = unionData['MeanOfPerceivedUsefulness'].describe()
+
+# '행위주체감' 기술통계량
+desSoA = unionData['MeanOfSenseOfAgency'].describe()
+
+# '귀인 패턴' 기술 통계량 - 내적귀인과 외적귀인으로 나눠서 함수 적용
+desLoC = unionData['MeanOfLocusCausality'].describe()
+desPerCon = unionData['MeanOfPersonalControl'].describe()
+desStab = unionData['MeanOfStability'].describe()
+desExCon = unionData['MeanOfExternalControl'].describe()
+
+# '심리적 친밀감' 기술통계량
+desPsyClo = unionData['MeanOfPsychologicalCloseness'].describe()
+
+# '만족도' 기술통계량
+desSatis = unionData['MeanOfSatisfaction'].describe()
+
+# '지속 사용 의도' 기술통계량
+desCUI = unionData['MeanOfContinuousUsageIntention'].describe()
